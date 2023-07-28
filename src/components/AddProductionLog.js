@@ -28,7 +28,7 @@ const AddProductionLog = () => {
 
     navigate(from, { replace: true });
 
-    fetch("http://localhost:5000/addLogs", {
+    fetch("https://fetch-bills-server.onrender.com/addLogs", {
       method: "POST",
       headers: {
         "content-type": "application/json",
