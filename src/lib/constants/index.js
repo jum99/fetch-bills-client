@@ -8,7 +8,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   {
     key: "dashboard",
     label: "Dashboard",
-    path: "/",
+    path: "/dashboard",
     icon: <HiOutlineViewGrid />,
   },
   {
@@ -38,7 +38,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   {
     key: "productionLogs",
     label: "Production Logs",
-    path: "/productionLogs",
+    path: "/",
     icon: <HiOutlineShoppingCart />,
   },
 ];

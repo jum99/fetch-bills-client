@@ -13,12 +13,12 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Dashboard />} />
+          <Route index element={<ProductionLogs />} />
           <Route path="fetchBills" element={<FetchBills />} />
           <Route path="companies" element={<Companies />} />
           <Route path="createJob" element={<CreateJob />} />
           <Route path="createChallan" element={<CreateChallan />} />
-          <Route path="productionLogs" element={<ProductionLogs />} />
+          <Route path="dashboard" element={<Dashboard />} />
         </Route>
         <Route path="addProductionLog" element={<AddProductionLog />} />
       </Routes>

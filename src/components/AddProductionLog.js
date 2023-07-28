@@ -8,7 +8,7 @@ const AddProductionLog = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  let from = location.state?.from?.pathname || "/productionLogs";
+  let from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
     const logs = {
