@@ -1,0 +1,28 @@
+.add-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.add-form input {
+  padding: 5px;
+  margin-bottom: 25px;
+  border: none;
+  width: 30%;
+  border-bottom: 2px solid rgb(118 80 59);
+}
+
+.add-btn {
+  background-color: rgb(118 80 59);
+  color: white;
+  width: 12%;
+  border: none;
+  padding: 12px 0px;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 600;
+}

@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/shared/Layout";
+import Dashboard from "./pages/Dashboard";
+import FetchBills from "./pages/FetchBills";
+import ProductionLogs from "./pages/ProductionLogs";
+import AddProductionLog from "./components/AddProductionLog";
+import Companies from "./pages/Companies";
+import CreateJob from "./pages/CreateJob";
+import CreateChallan from "./pages/CreateChallan";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="fetchBills" element={<FetchBills />} />
+          <Route path="companies" element={<Companies />} />
+          <Route path="createJob" element={<CreateJob />} />
+          <Route path="createChallan" element={<CreateChallan />} />
+          <Route path="productionLogs" element={<ProductionLogs />} />
+        </Route>
+        <Route path="addProductionLog" element={<AddProductionLog />} />
+      </Routes>
+    </Router>
   );
 }
 
