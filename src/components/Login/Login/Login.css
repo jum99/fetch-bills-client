@@ -1,0 +1,28 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.login-form input {
+    padding: 5px;
+    margin-bottom: 15px;
+    border: none;
+    width: 30%;
+    border-bottom: 2px solid rgb(118 80 59);
+}
+
+.submit-btn {
+    background-color: rgb(118 80 59);
+    color: white;
+    width: 30%;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 600;
+}

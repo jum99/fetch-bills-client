@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { HiOutlinePencil, HiOutlineTrash} from "react-icons/hi";
 
 const ListOfLogs = () => {
   const [logs, setLogs] = useState([]);
@@ -9,6 +11,19 @@ const ListOfLogs = () => {
       .then((data) => setLogs(data));
   }, []);
 
+  const deleteItem = (id) => {
+    fetch(`https://fetch-bills-server.onrender.com/deleteItem/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log("deleted successfully", result);
+        if (result) {
+          alert("This product is Deleted Please refresh page");
+        }
+      });
+  };
+
   return (
     <div className="bg-white px-4 pt-3 pb-4 rounded-sm border border-gray-200 flex-1">
       <strong className="text-gray-700 font-medium">LIST OF LOGS</strong>
@@ -16,7 +31,8 @@ const ListOfLogs = () => {
         <table className="w-full text-gray-700">
           <thead>
             <tr>
-              <th>ID</th>
+              <th></th>
+              <th></th>
               <th>Date</th>
               <th>Shift</th>
               <th>Machine</th>
@@ -32,8 +48,20 @@ const ListOfLogs = () => {
             {logs.map((log) => (
               <tr key={log._id}>
                 <td>
-                  <p>#{log._id}</p>
+                <button
+                    onClick={() => deleteItem(log._id)}
+                    className="me-2"
+                  >
+                    < HiOutlineTrash/>
+                  </button>
+                  </td>
+                  <td>
+                  <button className="me-2 ">
+                  <HiOutlinePencil/>
+                  </button>
+                  
                 </td>
+                
                 <td>
                   <p>{log.date}</p>
                 </td>

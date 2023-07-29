@@ -5,3 +5,9 @@
   color: white;
   border-radius: 20px;
 }
+
+.logout-btn{
+  border: 2px solid darkcyan;
+  border-radius: 5px;
+  padding: 0px 20px;
+}

@@ -2,11 +2,15 @@ import React from "react";
 import classNames from "classnames";
 import { Link, useLocation } from "react-router-dom";
 import { DASHBOARD_SIDEBAR_LINKS } from "../../lib/constants";
+import useAuth from "../../hooks/useAuth";
+import { HiOutlineViewGrid } from "react-icons/hi";
 
 const linkClass =
   "flex items-center gap-2 px-3 py-2 hover:bg-white hover:text-black hover:no-underline active:bg-white rounded-sm ";
 
 export default function Sidebar() {
+  const { user, admin } = useAuth();
+
   return (
     <div
       style={{ backgroundColor: "rgb(118 80 59)" }}
@@ -20,9 +24,18 @@ export default function Sidebar() {
         />
       </div>
       <div className="py-8 flex flex-1 flex-col gap-0.5">
-        {DASHBOARD_SIDEBAR_LINKS.map((link) => (
+       {
+         user?.email && admin ? <>
+         {DASHBOARD_SIDEBAR_LINKS.map((link) => (
           <SidebarLink key={link.key} link={link} />
         ))}
+         </> : <>
+         <Link className="flex items-center gap-2 px-3 py-2 hover:bg-white hover:text-black hover:no-underline active:bg-white text-white rounded-sm" to='/layout'><HiOutlineViewGrid /> Dashboard</Link>
+         </>
+       }
+
+        
+
       </div>
       <div className="flex flex-col gap-0.5 pt-2 border-neutral-700">
         <div className="flex items-center mb-5">
