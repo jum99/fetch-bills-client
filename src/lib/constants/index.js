@@ -1,16 +1,9 @@
 import {
-  HiOutlineViewGrid,
   HiOutlineCube,
   HiOutlineShoppingCart,
 } from "react-icons/hi";
 
 export const DASHBOARD_SIDEBAR_LINKS = [
-  {
-    key: "dashboard",
-    label: "Dashboard",
-    path: "/layout",
-    icon: <HiOutlineViewGrid />,
-  },
   {
     key: "companies",
     label: "Companies",

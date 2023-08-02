@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import useAuth from '../../../hooks/useAuth';
+// import useAuth from '../../../hooks/useAuth';
 import './Login.css';
+import useAuth from '../../../hooks/useAuth';
+import { Alert, Spinner } from 'react-bootstrap';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { loginUser, signInWithGoogle, isLoading } = useAuth();
+    const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
 
     const handleOnBlur = e => {
         const field = e.target.name;
@@ -51,6 +53,10 @@ const Login = () => {
             <p>-------------------------------</p>
 
             <button onClick={handleGoogleSignIn} className='submit-btn'>Google Sign In</button>
+
+            {isLoading && <Spinner animation='border' variant='success' />}
+            {user?.email && <Alert variant='success'>USER CREATED SUCCESSFULLY</Alert>}
+            {authError && <Alert variant='danger'>{authError}</Alert>}
 
         </div>
     );

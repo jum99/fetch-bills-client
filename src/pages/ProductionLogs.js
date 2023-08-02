@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const ProductionLogs = () => {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
 
   return (
     <div>
@@ -15,7 +15,6 @@ const ProductionLogs = () => {
           {
            user?.email && <>
            <h2 style={{color:'rgb(118 80 59)'}} className="m-3 font-bold">{user?.displayName}</h2>
-           <button className="logout-btn" onClick={logout}>Logout</button>
            </>
           }
         </div>

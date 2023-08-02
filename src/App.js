@@ -11,8 +11,8 @@ import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import Login from "./components/Login/Login/Login";
 import Register from "./components/Login/Register/Register";
 import RequireAuth from "./components/Login/Login/RequireAuth";
-import RequireAdmin from "./components/Login/Login/RequireAdmin";
 import MakeAdmin from "./pages/MakeAdmin";
+import About from "./components/About";
 
 function App() {
   return (
@@ -20,7 +20,12 @@ function App() {
     <AuthProvider>
     
       <Routes>
+        
       <Route exact path="/" element={<Login />} />
+      <Route path="about" element={
+      <RequireAuth><About /></RequireAuth>
+      
+      } />
       <Route path="register" element={<Register />} />
 
         <Route path="layout" element={<RequireAuth>
@@ -28,40 +33,40 @@ function App() {
         </RequireAuth>
         }>
           <Route path="productionLogs" element={
-            <RequireAdmin>
+           
             <ProductionLogs />
-          </RequireAdmin>
+         
           } />
           <Route path="fetchBills" element={
-          <RequireAdmin>
+          
           <FetchBills />
-          </RequireAdmin>
+          
           } />
           <Route path="companies" element={
-          <RequireAdmin>
+         
           <Companies />
-          </RequireAdmin>
+          
           } />
           <Route path="createJob" element={
-          <RequireAdmin>
+         
           <CreateJob />
-          </RequireAdmin>
+          
           } />
           <Route path="createChallan" element={
-          <RequireAdmin>
+          
           <CreateChallan />
-          </RequireAdmin>
+          
           } />
           <Route path="makeAdmin" element={
-          <RequireAdmin>
+         
           <MakeAdmin />
-          </RequireAdmin>
+         
           } />
           <Route index element={<Dashboard />} />
           <Route path="addProductionLog" element={
-          <RequireAdmin>
+          
           <AddProductionLog />
-          </RequireAdmin>
+         
           } />
         </Route>          
       </Routes>

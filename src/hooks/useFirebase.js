@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useLocation, useNavigate } from 'react-router-dom';
 import initializeFirebase from '../components/Login/Login/Firebase/firebase.init';
-import { useNavigate } from 'react-router-dom';
 
 // initialize firebase app
 initializeFirebase();
@@ -13,6 +13,8 @@ const useFirebase = () => {
     const [admin, setAdmin] = useState(false);
 
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/layout";
     
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -35,7 +37,9 @@ const useFirebase = () => {
                 }).catch((error) => {
 
                 });
-                navigate('/layout');
+              
+                navigate(from, { replace: true });
+
             })
             .catch((error) => {
                 setAuthError(error.message);
@@ -48,7 +52,7 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                navigate('/layout');
+                navigate(from, { replace: true });
                 setAuthError('');
             })
             .catch((error) => {
@@ -61,7 +65,8 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                navigate('/layout');
+                navigate(from, { replace: true });
+
                 const user = result.user;
                 saveUser(user.email, user.displayName, 'PUT');
                 setAuthError('');

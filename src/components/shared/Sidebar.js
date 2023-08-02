@@ -2,14 +2,14 @@ import React from "react";
 import classNames from "classnames";
 import { Link, useLocation } from "react-router-dom";
 import { DASHBOARD_SIDEBAR_LINKS } from "../../lib/constants";
+import { HiOutlineLogout, HiOutlineViewGrid } from "react-icons/hi";
 import useAuth from "../../hooks/useAuth";
-import { HiOutlineViewGrid } from "react-icons/hi";
 
 const linkClass =
   "flex items-center gap-2 px-3 py-2 hover:bg-white hover:text-black hover:no-underline active:bg-white rounded-sm ";
 
 export default function Sidebar() {
-  const { user, admin } = useAuth();
+  const { user, admin, logout } = useAuth();
 
   return (
     <div
@@ -24,20 +24,27 @@ export default function Sidebar() {
         />
       </div>
       <div className="py-8 flex flex-1 flex-col gap-0.5">
-       {
-         user?.email && admin ? <>
+      <Link className="flex items-center gap-2 px-3 py-2 hover:bg-white hover:text-black hover:no-underline active:bg-white text-white rounded-sm" to='/layout'><HiOutlineViewGrid /> Dashboard</Link>  
+
+       { admin && <>
          {DASHBOARD_SIDEBAR_LINKS.map((link) => (
           <SidebarLink key={link.key} link={link} />
         ))}
-         </> : <>
-         <Link className="flex items-center gap-2 px-3 py-2 hover:bg-white hover:text-black hover:no-underline active:bg-white text-white rounded-sm" to='/layout'><HiOutlineViewGrid /> Dashboard</Link>
-         </>
-       }
-
-        
+         </> } 
 
       </div>
       <div className="flex flex-col gap-0.5 pt-2 border-neutral-700">
+      <div className="ml-5 flex items-center text-white">
+      {
+           user?.email && <>
+           <span className=""><HiOutlineLogout/></span>
+           
+           <button className="text-white m-3" onClick={logout}>Logout</button>
+           </>
+          }
+      </div>
+          
+      
         <div className="flex items-center mb-5">
           <img
             className="rounded-full h-8 w-8 ml-1.5"
