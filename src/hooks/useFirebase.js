@@ -86,7 +86,7 @@ const useFirebase = () => {
             setIsLoading(false);
         });
         return () => unsubscribed;
-    }, [])
+    }, [auth])
 
     useEffect(() => {
         fetch(`https://fetch-bills-server.onrender.com/users/${user.email}`)

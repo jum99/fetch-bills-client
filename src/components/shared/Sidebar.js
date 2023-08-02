@@ -24,7 +24,7 @@ export default function Sidebar() {
         />
       </div>
       <div className="py-8 flex flex-1 flex-col gap-0.5">
-      <Link className="flex items-center gap-2 px-3 py-2 hover:bg-white hover:text-black hover:no-underline active:bg-white text-white rounded-sm" to='/layout'><HiOutlineViewGrid /> Dashboard</Link>  
+      <Link className="flex items-center gap-2 px-3 py-2 hover:bg-white hover:text-black hover:no-underline active:bg-white text-white rounded-sm" to='dashboard'><HiOutlineViewGrid /> Dashboard</Link>  
 
        { admin && <>
          {DASHBOARD_SIDEBAR_LINKS.map((link) => (

@@ -62,7 +62,9 @@ function App() {
           <MakeAdmin />
          
           } />
-          <Route index element={<Dashboard />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route index element={<Dashboard />}></Route>
+
           <Route path="addProductionLog" element={
           
           <AddProductionLog />

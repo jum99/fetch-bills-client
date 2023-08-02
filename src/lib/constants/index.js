@@ -7,37 +7,37 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   {
     key: "companies",
     label: "Companies",
-    path: "/layout/companies",
+    path: "companies",
     icon: <HiOutlineCube />,
   },
   {
     key: "createJob",
     label: "Create Job",
-    path: "/layout/createJob",
+    path: "createJob",
     icon: <HiOutlineCube />,
   },
   {
     key: "fetchBills",
     label: "Fetch Bills",
-    path: "/layout/fetchBills",
+    path: "fetchBills",
     icon: <HiOutlineCube />,
   },
   {
     key: "createChallan",
     label: "Create Challan",
-    path: "/layout/createChallan",
+    path: "createChallan",
     icon: <HiOutlineCube />,
   },
   {
     key: "productionLogs",
     label: "Production Logs",
-    path: "/layout/productionLogs",
+    path: "productionLogs",
     icon: <HiOutlineShoppingCart />,
   },
   {
     key: "makeAdmin",
     label: "Make Admin",
-    path: "/layout/makeAdmin",
+    path: "makeAdmin",
     icon: <HiOutlineShoppingCart />,
   },
 ];
